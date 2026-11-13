@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AcmeCorp — Employee Portal Login</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1d4ed8;
+      --sky: #0ea5e9;
+      --dark: #0f172a;
+      --gray: #64748b;
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .top-banner {
+      width: 900px;
+      max-width: 95vw;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+    .top-banner a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .top-banner a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      display: flex;
+      width: 900px;
+      max-width: 95vw;
+      min-height: 520px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      background: white;
+    }
+    /* Left branding panel */
+    .branding {
+      flex: 1;
+      background: linear-gradient(160deg, #1d4ed8 0%, #0ea5e9 100%);
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 800;
+    }
+    .logo-name { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+    .branding h1 { font-size: 28px; font-weight: 700; line-height: 1.25; margin: 20px 0 12px; }
+    .branding p { font-size: 14px; opacity: 0.9; line-height: 1.6; }
+    .features { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; opacity: 0.92;
+    }
+    .feature-dot {
+      width: 7px; height: 7px;
+      background: #7dd3fc;
+      border-radius: 50%; flex-shrink: 0;
+    }
+    .demo-credentials {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+    .demo-credentials code {
+      background: rgba(0,0,0,0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #7dd3fc;
+    }
+    
+    /* Right form panel */
+    .form-panel {
+      flex: 1;
+      background: #ffffff;
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-panel h2 { font-size: 24px; color: #0f172a; font-weight: 700; margin-bottom: 6px; }
+    .form-panel .subtitle { color: #64748b; font-size: 14px; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #0f172a;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 6px;
+    }
+    .btn-login:hover { opacity: 0.94; transform: translateY(-1px); }
+    .btn-login:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .btn-simulate {
+      width: 100%;
+      padding: 10px;
+      background: #f8fafc;
+      border: 1.5px dashed #ef4444;
+      color: #dc2626;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: background 0.2s, color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-simulate:hover {
+      background: #fef2f2;
+    }
+
+    .error-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-left: 4px solid #ef4444;
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #dc2626;
+      font-size: 13px;
+      margin-bottom: 18px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+    .success-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #22c55e;
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #16a34a;
+      font-size: 13px;
+      margin-bottom: 18px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+    .telemetry-status {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 14px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .telemetry-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+    .footer-links { margin-top: 16px; text-align: center; font-size: 12px; color: #94a3b8; }
+    .footer-links a { color: #3b82f6; text-decoration: none; }
+    
+    @media (max-width: 768px) {
+      .branding { display: none; }
+      .container { min-height: auto; }
+      .form-panel { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div>🌐 <strong>AcmeCorp Production Demo</strong> (Hosted on Vercel)</div>
+  <div>
+    <a href="index.html">← Company Home</a> &nbsp;|&nbsp;
+    <a href="monitor.html">Live Attack Monitor 🔴</a>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Left: Corporate Branding -->
+  <div class="branding">
+    <div>
+      <div class="logo">
+        <div class="logo-icon">A</div>
+        <div class="logo-name">AcmeCorp</div>
+      </div>
+      <h1>Employee Single Sign-On</h1>
+      <p>Authorized access only. All authentication events and network requests are monitored by CyberWatch Intelligence Platform.</p>
+      
+      <div class="features">
+        <div class="feature"><div class="feature-dot"></div> Corporate HR & Payroll Systems</div>
+        <div class="feature"><div class="feature-dot"></div> Customer & Financial Records</div>
+        <div class="feature"><div class="feature-dot"></div> Internal Threat Intelligence Logs</div>
+      </div>
+    </div>
+
+    <div class="demo-credentials">
+      <strong>Demo Test Credentials:</strong><br>
+      • Admin: <code>admin</code> / <code>password123</code><br>
+      • CEO: <code>ceo</code> / <code>Acme@2024</code><br>
+      • Wrong passwords simulate brute-force alerts!
+    </div>
+  </div>
+
+  <!-- Right: Sign In Form -->
+  <div class="form-panel">
+    <h2>Sign In</h2>
+    <p class="subtitle">Access your employee dashboard & internal tools</p>
+
+    <div id="errorBox" class="error-box">
+      <span>⚠️</span>
+      <span id="errorMessage">Invalid username or password.</span>
+    </div>
+
+    <div id="successBox" class="success-box">
+      <span>✓</span>
+      <span id="successMessage">Credentials verified! Redirecting...</span>
+    </div>
+
+    <form id="loginForm" autocomplete="off">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="e.g. admin" required autofocus />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required />
+      </div>
+
+      <button type="submit" id="loginBtn" class="btn-login">Sign In →</button>
+      
+      <button type="button" id="simulateBtn" class="btn-simulate">
+        ⚡ Simulate Brute-Force Attack Live
+      </button>
+    </form>
+
+    <div class="telemetry-status">
+      <div class="telemetry-dot" id="statusDot"></div>
+      <span id="statusText">CyberWatch Bridge: http://localhost:8000</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="monitor.html">View Real-time Attack Monitor</a> &nbsp;•&nbsp;
+      <a href="https://github.com/GaganHR2006/Cybersecurity_Technology_Package_Hackathon" target="_blank">GitHub Repo</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const VALID_USERS = {
+    "admin": "password123",
+    "ceo": "Acme@2024",
+    "hr.manager": "HRportal#9"
+  };
+
+  const CYBERWATCH_API = window.localStorage.getItem('cyberwatch_url') || 'http://localhost:8000';
+  let failCount = parseInt(sessionStorage.getItem('acme_fails') || '0', 10);
+
+  const errorBox = document.getElementById('errorBox');
+  const errorMessage = document.getElementById('errorMessage');
+  const successBox = document.getElementById('successBox');
+  const successMessage = document.getElementById('successMessage');
+  const loginForm = document.getElementById('loginForm');
+  const simulateBtn = document.getElementById('simulateBtn');
+  const loginBtn = document.getElementById('loginBtn');
+
+  // Broadcast alert to CyberWatch backend (if available locally) and localStorage
+  async function broadcastAlert(ruleId, ruleLevel, desc, mitreId, mitreTactic, mitreTechnique, user, isSuccess) {
+    const nowIso = new Date().toISOString();
+    const event = {
+      time: new Date().toLocaleTimeString(),
+      type: isSuccess ? (failCount >= 3 ? "BREACH" : "LOGIN") : "FAIL",
+      ip: "192.168.1.105",
+      user: user,
+      success: isSuccess,
+      message: isSuccess ? (failCount >= 3 ? `🚨 Brute-force SUCCESS after ${failCount} attempts!` : "Normal login") : `Failed attempt #${failCount}`
+    };
+
+    // Store in localStorage for the Live Monitor
+    let events = JSON.parse(localStorage.getItem('acme_events') || '[]');
+    events.unshift(event);
+    if (events.length > 100) events.pop();
+    localStorage.setItem('acme_events', JSON.stringify(events));
+
+    let failsByIp = JSON.parse(localStorage.getItem('acme_fails_by_ip') || '{}');
+    if (!isSuccess) {
+      failsByIp[event.ip] = (failsByIp[event.ip] || 0) + 1;
+    } else {
+      failsByIp[event.ip] = 0;
+    }
+    localStorage.setItem('acme_fails_by_ip', JSON.stringify(failsByIp));
+
+    // Send to CyberWatch backend via fetch
+    try {
+      await fetch(`${CYBERWATCH_API}/api/v1/alerts/ingest`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          alert_id: `vercel-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`,
+          source: isSuccess ? "wazuh" : (failCount >= 5 ? "suricata" : "wazuh"),
+          timestamp: nowIso,
+          agent: { id: "010", name: "acmecorp-webportal-vercel", ip: "10.0.0.100" },
+          rule: {
+            id: ruleId,
+            level: ruleLevel,
+            description: desc,
+            mitre: {
+              id: mitreId ? [mitreId] : [],
+              tactic: mitreTactic ? [mitreTactic] : [],
+              technique: mitreTechnique ? [mitreTechnique] : []
+            }
+          },
+          data: { src_ip: event.ip, dst_port: 443, user: user },
+          raw_log: `[${nowIso}] AUTH_EVENT: user='${user}' from=${event.ip} success=${isSuccess} attempt=${failCount}`
+        }),
+        signal: AbortSignal.timeout(1500)
+      });
+      document.getElementById('statusDot').style.background = '#22c55e';
+    } catch(e) {
+      // Offline / backend not running locally
+      document.getElementById('statusDot').style.background = '#f59e0b';
+    }
+  }
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const user = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value;
+
+    if (VALID_USERS[user] === pass) {
+      // SUCCESS
+      errorBox.style.display = 'none';
+      successBox.style.display = 'flex';
+      successMessage.textContent = `Welcome back, ${user}! Authentication confirmed.`;
+      
+      const afterBrute = failCount >= 3;
+      await broadcastAlert(
+        "5501", 
+        afterBrute ? 14 : 3, 
+        `Successful login after ${failCount} failed attempts — possible brute force: ${user}`,
+        "T1078", "Initial Access", "Valid Accounts", 
+        user, 
+        true
+      );
+
+      sessionStorage.setItem('acme_user', user);
+      sessionStorage.setItem('acme_fails', '0');
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1000);
+    } else {
+      // FAIL
+      failCount++;
+      sessionStorage.setItem('acme_fails', failCount.toString());
+      errorBox.style.display = 'flex';
+      
+      if (failCount >= 5) {
+        errorMessage.textContent = `Failed attempt #${failCount}! Automated attack threshold exceeded. CyberWatch alert triggered.`;
+        await broadcastAlert("5712", 14, `Brute-force threshold exceeded: ${failCount} failed logins for user '${user}'`, "T1110.001", "Credential Access", "Password Guessing", user, false);
+      } else {
+        errorMessage.textContent = `Invalid username or password (Attempt #${failCount}). Try 'admin' / 'password123'`;
+        await broadcastAlert("5503", 10, `Failed login attempt #${failCount} for user '${user}'`, "T1110", "Credential Access", "Brute Force", user, false);
+      }
+    }
+  });
+
+  // Automatic attack simulation button
+  simulateBtn.addEventListener('click', async () => {
+    simulateBtn.disabled = true;
+    loginBtn.disabled = true;
+    errorBox.style.display = 'flex';
+
+    const testPasswords = [
+      "123456", "password", "12345678", "qwerty", "abc123",
+      "111111", "monkey", "letmein", "dragon", "baseball",
+      "shadow", "master", "sunshine", "football", "password123"
+    ];
+
+    document.getElementById('username').value = "admin";
+
+    for (let i = 0; i < testPasswords.length; i++) {
+      const pwd = testPasswords[i];
+      document.getElementById('password').value = pwd;
+      failCount = i + 1;
+      sessionStorage.setItem('acme_fails', failCount.toString());
+
+      if (pwd === "password123") {
+        // Cracking success
+        errorBox.style.display = 'none';
+        successBox.style.display = 'flex';
+        successMessage.textContent = `🚨 [BREACH SUCCESS] Password cracked on attempt #${failCount} ('password123')!`;
+        
+        await broadcastAlert("5501", 14, `Successful login after ${failCount-1} failed attempts — brute force cracked: admin`, "T1078", "Initial Access", "Valid Accounts", "admin", true);
+        sessionStorage.setItem('acme_user', "admin");
+
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 1200);
+        return;
+      } else {
+        errorMessage.textContent = `Attacking... Attempt #${failCount}: tried '${pwd}' ✗ (alert sent to CyberWatch)`;
+        await broadcastAlert("5503", failCount >= 5 ? 13 : 10, `Failed web login attempt #${failCount} for user 'admin'`, "T1110", "Credential Access", "Brute Force", "admin", false);
+        await new Promise(r => setTimeout(r, 400));
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
