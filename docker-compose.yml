@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: cyberwatch_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./data/cyberwatch.db
+      - SECRET_KEY=changeme-in-production
+      - CORS_ORIGINS=["http://localhost:3000","http://localhost:5173"]
+    volumes:
+      - backend_data:/app/data
+    networks:
+      - cyberwatch_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build: ./frontend
+    container_name: cyberwatch_frontend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - cyberwatch_net
+
+  mock-wazuh:
+    image: python:3.11-slim
+    container_name: cyberwatch_simulator
+    working_dir: /app
+    volumes:
+      - ./lab_simulation:/app
+    command: >
+      sh -c "pip install requests --quiet &&
+             sleep 15 &&
+             python generators/attack_simulator.py --scenario all --backend-url http://backend:8000 --delay 1.0"
+    depends_on:
+      - backend
+    networks:
+      - cyberwatch_net
+    restart: on-failure
+
+volumes:
+  backend_data:
+
+networks:
+  cyberwatch_net:
+    driver: bridge

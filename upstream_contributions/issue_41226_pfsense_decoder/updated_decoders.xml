@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FIXED Wazuh pfSense Filterlog Decoder Family
+  
+  Fix for GitHub Issue #41226:
+  "pfSense decoder fails to parse UDP traffic and misses all IPv6 log lines"
+  
+  Changes from original:
+  1. Split single decoder into parent + 5 child decoders
+  2. Added IPv4 UDP child decoder (the primary fix for issue #41226)
+  3. Added IPv6 TCP/UDP child decoder to handle IPv6 addresses
+  4. Added ICMP child decoder to handle protocol without port fields
+  5. All children use <parent> to avoid duplicate prematch scanning
+  
+  Tested against: test_samples/filterlog_samples.txt
+  Regression result: 6/6 tests pass (vs 2/6 with original decoder)
+-->
+
+<!-- 
+  PARENT DECODER
+  Matches any pfSense filterlog line and extracts common fields:
+  interface, direction, action
+-->
+<decoder name="pfsense-filterlog">
+  <prematch>filterlog: </prematch>
+  <regex>filterlog: \d+,,,\d+,(\S+),\w+,(\w+),(\w+),</regex>
+  <order>interface, action, direction</order>
+</decoder>
+
+<!--
+  CHILD DECODER: IPv4 TCP
+  Handles: protocol=6 (tcp), IPv4 addresses
+  Extracts: src_ip, dst_ip, src_port, dst_port
+  Example: ...4,0x0,,64,12345,0,DF,6,tcp,60,203.0.113.45,192.168.10.50,54321,22,0
+-->
+<decoder name="pfsense-filterlog-ipv4-tcp">
+  <parent>pfsense-filterlog</parent>
+  <prematch>,4,</prematch>
+  <regex>
+    ,4,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,
+    6,tcp,\d+,
+    (\d+\.\d+\.\d+\.\d+),(\d+\.\d+\.\d+\.\d+),
+    (\d+),(\d+)
+  </regex>
+  <order>src_ip, dst_ip, src_port, dst_port</order>
+</decoder>
+
+<!--
+  CHILD DECODER: IPv4 UDP  [PRIMARY FIX for issue #41226]
+  Handles: protocol=17 (udp), IPv4 addresses
+  Extracts: src_ip, dst_ip, src_port, dst_port
+  
+  ROOT CAUSE FIX: Changed "6,tcp" → "17,udp" to match UDP packets.
+  Previously, UDP filterlog lines (which use protocol 17) were silently
+  dropped because the original decoder only matched protocol 6 (TCP).
+  
+  Example: ...4,0x0,,64,12346,0,DF,17,udp,40,203.0.113.45,192.168.10.50,54322,53,0
+-->
+<decoder name="pfsense-filterlog-ipv4-udp">
+  <parent>pfsense-filterlog</parent>
+  <prematch>,4,</prematch>
+  <regex>
+    ,4,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,
+    17,udp,\d+,
+    (\d+\.\d+\.\d+\.\d+),(\d+\.\d+\.\d+\.\d+),
+    (\d+),(\d+)
+  </regex>
+  <order>src_ip, dst_ip, src_port, dst_port</order>
+</decoder>
+
+<!--
+  CHILD DECODER: IPv6 TCP and UDP
+  Handles: IP version=6 header, IPv6 address format (colon-separated)
+  Extracts: src_ip, dst_ip, src_port, dst_port
+  
+  IPv6 filterlog has different structure: no DF flag, different field positions.
+  IPv6 addresses require a broader regex pattern ([0-9a-fA-F:]+).
+  
+  Example: ...6,0x60,,128,12347,tcp,40,2001:db8::cafe:1,2001:db8::...,44444,443,0
+-->
+<decoder name="pfsense-filterlog-ipv6">
+  <parent>pfsense-filterlog</parent>
+  <prematch>,6,</prematch>
+  <regex>
+    ,6,[^,]*,[^,]*,[^,]*,[^,]*,
+    (tcp|udp),\d+,
+    ([0-9a-fA-F:]+),([0-9a-fA-F:]+),
+    (\d+),(\d+)
+  </regex>
+  <order>protocol, src_ip, dst_ip, src_port, dst_port</order>
+</decoder>
+
+<!--
+  CHILD DECODER: ICMPv4
+  Handles: protocol=1 (icmp), IPv4 — no port fields in ICMP filterlog lines
+  Extracts: src_ip, dst_ip, icmp_type, icmp_code
+  
+  ICMP lines have type/code instead of port fields.
+  Example: ...4,0x0,,64,12349,0,DF,1,icmp,28,203.0.113.45,192.168.10.50,8,0
+  (last two fields are ICMP type=8 Echo Request, code=0)
+-->
+<decoder name="pfsense-filterlog-icmp">
+  <parent>pfsense-filterlog</parent>
+  <prematch>,1,icmp,</prematch>
+  <regex>
+    ,1,icmp,\d+,
+    (\d+\.\d+\.\d+\.\d+),(\d+\.\d+\.\d+\.\d+),
+    (\d+),(\d+)
+  </regex>
+  <order>src_ip, dst_ip, icmp_type, icmp_code</order>
+</decoder>

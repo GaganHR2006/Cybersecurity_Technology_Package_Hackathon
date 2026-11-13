@@ -1,0 +1,30 @@
+# pfSense filterlog test samples for Wazuh decoder regression testing
+# Format: <description> | <log line>
+# 
+# Tests are grouped by:
+#   PASS_ORIGINAL  = should parse with BOTH original and fixed decoder
+#   FAIL_ORIGINAL  = fails with original decoder, should PASS with fixed decoder
+#
+# --- IPv4 TCP (PASS_ORIGINAL) ---
+# Test 1: IPv4 TCP block - standard case, original decoder handles this
+Nov 13 12:00:01 pfsense filterlog: 5,,,1000000103,em0,match,block,in,4,0x0,,64,12345,0,DF,6,tcp,60,203.0.113.45,192.168.10.50,54321,22,0
+
+# --- IPv4 UDP (FAIL_ORIGINAL) ---
+# Test 2: IPv4 UDP pass - original decoder fails to extract ports (protocol 17 not matched)
+Nov 13 12:00:02 pfsense filterlog: 5,,,1000000104,em0,match,pass,in,4,0x0,,64,12346,0,DF,17,udp,40,203.0.113.45,192.168.10.50,54322,53,0
+
+# --- IPv6 TCP (FAIL_ORIGINAL) ---
+# Test 3: IPv6 TCP block - original decoder completely misses IPv6 lines
+Nov 13 12:00:03 pfsense filterlog: 5,,,1000000105,em1,match,block,in,6,0x60,,128,12347,tcp,40,2001:db8::cafe:1,2001:db8::192:168:10:50,44444,443,0
+
+# --- IPv6 UDP (FAIL_ORIGINAL) ---
+# Test 4: IPv6 UDP pass - original decoder misses IPv6
+Nov 13 12:00:04 pfsense filterlog: 5,,,1000000106,em1,match,pass,in,6,0x60,,64,12348,udp,32,2001:db8::1,2001:db8::2,54323,53,0
+
+# --- ICMP (FAIL_ORIGINAL) ---
+# Test 5: ICMPv4 - no port fields, original decoder regex fails
+Nov 13 12:00:05 pfsense filterlog: 5,,,1000000107,em0,match,block,in,4,0x0,,64,12349,0,DF,1,icmp,28,203.0.113.45,192.168.10.50,8,0
+
+# --- Large outbound / exfil indicator (PASS_ORIGINAL) ---
+# Test 6: IPv4 TCP outbound - large transfer flagged as potential exfiltration
+Nov 13 12:04:30 pfsense filterlog: 5,,,1000000108,em0,match,pass,out,4,0x0,,64,55000,0,DF,6,tcp,471859200,192.168.10.50,203.0.113.45,34567,443,0

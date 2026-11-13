@@ -1,0 +1,63 @@
+[
+  {
+    "timestamp": "2026-11-13T12:00:00.000000+0000",
+    "flow_id": 100000001,
+    "event_type": "alert",
+    "src_ip": "203.0.113.45",
+    "src_port": 54321,
+    "dest_ip": "192.168.10.50",
+    "dest_port": 22,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2001219,
+      "rev": 20,
+      "signature": "ET SCAN Potential SSH Scan",
+      "category": "Attempted Information Leak",
+      "severity": 2
+    }
+  },
+  {
+    "timestamp": "2026-11-13T12:04:30.000000+0000",
+    "flow_id": 100000002,
+    "event_type": "alert",
+    "src_ip": "192.168.10.50",
+    "src_port": 34567,
+    "dest_ip": "203.0.113.45",
+    "dest_port": 443,
+    "proto": "TCP",
+    "alert": {
+      "action": "allowed",
+      "gid": 1,
+      "signature_id": 2013028,
+      "rev": 6,
+      "signature": "ET POLICY PE EXE or DLL Windows file download HTTP",
+      "category": "Potential Corporate Privacy Violation",
+      "severity": 1
+    },
+    "fileinfo": {
+      "size": 471859200,
+      "filename": "customers_export.zip"
+    }
+  },
+  {
+    "timestamp": "2026-11-13T11:55:00.000000+0000",
+    "flow_id": 100000003,
+    "event_type": "alert",
+    "src_ip": "203.0.113.45",
+    "src_port": 0,
+    "dest_ip": "192.168.10.50",
+    "dest_port": 0,
+    "proto": "TCP",
+    "alert": {
+      "action": "blocked",
+      "gid": 1,
+      "signature_id": 2400000,
+      "rev": 1,
+      "signature": "ET CINS Active Threat Intelligence Poor Reputation IP group 1",
+      "category": "Misc Attack",
+      "severity": 2
+    }
+  }
+]

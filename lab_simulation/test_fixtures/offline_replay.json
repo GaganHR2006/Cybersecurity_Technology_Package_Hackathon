@@ -1,0 +1,578 @@
+[
+  {
+    "alert_id": "wazuh-245af593-4afe-43fb-86af-7aca780a1f3b",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780863Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 1 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:00 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54320 ssh2"
+  },
+  {
+    "alert_id": "wazuh-cdcf5b5d-bfbb-434f-8af3-8b5d30b9327b",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780917Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 2 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:01 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54321 ssh2"
+  },
+  {
+    "alert_id": "wazuh-719a3178-f78c-4984-8ec1-25797886bd45",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780936Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 3 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:02 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54322 ssh2"
+  },
+  {
+    "alert_id": "wazuh-92afb9d1-b563-49a0-ad77-099ce87976e1",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780948Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 4 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:03 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54323 ssh2"
+  },
+  {
+    "alert_id": "wazuh-bcd9eefd-7300-40d1-b777-e09d958ef869",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780959Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 5 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:04 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54324 ssh2"
+  },
+  {
+    "alert_id": "wazuh-767e5f6e-94d9-4b89-8585-c634d26fe2f1",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780968Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 6 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:05 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54325 ssh2"
+  },
+  {
+    "alert_id": "wazuh-19f47dd8-717f-4fb1-a796-98a2f8bc6e7f",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780976Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 7 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:06 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54326 ssh2"
+  },
+  {
+    "alert_id": "wazuh-9cbcc9eb-d86b-4145-924d-5ff458f1b232",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780985Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 8 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:07 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54327 ssh2"
+  },
+  {
+    "alert_id": "wazuh-d35108a5-6c50-4b2b-abb9-796044756c76",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.780999Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 9 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:08 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54328 ssh2"
+  },
+  {
+    "alert_id": "wazuh-2a8c10ce-9e71-4c96-b802-4a1cb8226b00",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781070Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 10 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:09 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54329 ssh2"
+  },
+  {
+    "alert_id": "wazuh-17fa47d1-3a68-41d2-b85e-2dce732e07ea",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781119Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 11 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:10 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54330 ssh2"
+  },
+  {
+    "alert_id": "wazuh-ab24c18e-047d-4149-ace0-10a8646388f6",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781144Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 12 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:11 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54331 ssh2"
+  },
+  {
+    "alert_id": "wazuh-ef3b506f-a392-433f-91bb-d74aba0e7346",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781152Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 13 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:12 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54332 ssh2"
+  },
+  {
+    "alert_id": "wazuh-fbbe30fd-f86a-4db6-aec3-da484424dfd3",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781163Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 14 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:13 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54333 ssh2"
+  },
+  {
+    "alert_id": "wazuh-b065b4cb-74eb-4e19-bf0a-c8c42e55cc03",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781169Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 10,
+      "description": "User authentication failure. Attempt 15 of 15 for user: dbadmin",
+      "mitre": {
+        "id": [
+          "T1110"
+        ],
+        "tactic": [
+          "Credential Access"
+        ],
+        "technique": [
+          "Brute Force"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:00:14 prod-db-server sshd[1234]: Failed password for dbadmin from 203.0.113.45 port 54334 ssh2"
+  },
+  {
+    "alert_id": "wazuh-f4df532f-ee17-421f-8d8d-21a771183b19",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781177Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5501",
+      "level": 5,
+      "description": "User logged in successfully: dbadmin",
+      "mitre": {
+        "id": [
+          "T1078"
+        ],
+        "tactic": [
+          "Initial Access"
+        ],
+        "technique": [
+          "Valid Accounts"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:02:15 prod-db-server sshd[1234]: Accepted password for dbadmin from 203.0.113.45 port 54336 ssh2"
+  },
+  {
+    "alert_id": "wazuh-ba91a25d-d7b0-49ce-bbde-ee6823082150",
+    "source": "wazuh",
+    "timestamp": "2026-11-13T09:59:12.781183Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "5503",
+      "level": 12,
+      "description": "Sensitive file accessed: /var/data/customers.db",
+      "mitre": {
+        "id": [
+          "T1005"
+        ],
+        "tactic": [
+          "Collection"
+        ],
+        "technique": [
+          "Data from Local System"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 22,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:03:40 prod-db-server audit[5678]: openat /var/data/customers.db by uid=dbadmin"
+  },
+  {
+    "alert_id": "wazuh-1f34a1e5-526d-407b-9acc-e7880761bd2b",
+    "source": "suricata",
+    "timestamp": "2026-11-13T09:59:12.781189Z",
+    "agent": {
+      "id": "001",
+      "name": "prod-db-server",
+      "ip": "192.168.10.50"
+    },
+    "rule": {
+      "id": "suricata-et-policy-001",
+      "level": 14,
+      "description": "High-volume outbound data transfer detected (450MB) to external IP",
+      "mitre": {
+        "id": [
+          "T1048"
+        ],
+        "tactic": [
+          "Exfiltration"
+        ],
+        "technique": [
+          "Exfiltration Over Alternative Protocol"
+        ]
+      }
+    },
+    "data": {
+      "src_ip": "203.0.113.45",
+      "dst_port": 443,
+      "user": "dbadmin"
+    },
+    "raw_log": "Nov 13 12:04:30 suricata[9999]: ALERT ET POLICY Large Data Transfer to external 203.0.113.45:443 bytes=471859200"
+  }
+]

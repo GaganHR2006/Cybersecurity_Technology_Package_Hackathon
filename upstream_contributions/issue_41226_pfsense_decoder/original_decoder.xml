@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ORIGINAL (BUGGY) Wazuh pfSense Filterlog Decoder
+  
+  BUG: This decoder only matches IPv4 TCP traffic.
+  - IPv4 UDP (protocol 17): ports NOT extracted → missing network context
+  - IPv6 (any protocol): lines completely UNMATCHED → entire category of logs lost
+  - ICMP: regex mismatch → lines silently dropped
+  
+  This is the decoder as it existed before issue #41226 was fixed.
+-->
+<decoder name="pfsense-filterlog">
+  <prematch>filterlog:</prematch>
+  <!-- 
+    BUG: This regex is hardcoded to:
+      - IPv4 only: matches literal ",4," 
+      - TCP only: matches literal ",6,tcp,"
+    Result: UDP logs (17,udp) and all IPv6 logs produce no field extraction.
+  -->
+  <regex>
+    (\w+\s+\d+\s+[\d:]+)\s+\S+\s+filterlog:\s+
+    [\d,]+,[\d,]*,[\d,]*,\S+,\S+,\w+,\w+,\w+,
+    4,[^,]*,[^,]*,[^,]*,[^,]*,[^,]*,DF,
+    6,tcp,\d+,
+    (\d+\.\d+\.\d+\.\d+),(\d+\.\d+\.\d+\.\d+),
+    (\d+),(\d+)
+  </regex>
+  <order>timestamp, src_ip, dst_ip, src_port, dst_port</order>
+</decoder>
