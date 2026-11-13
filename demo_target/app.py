@@ -104,7 +104,7 @@ def log_event(event_type, ip, username, success, message):
 
 @app.route("/")
 def index():
-    return redirect(url_for("login"))
+    return render_template("index.html", company=COMPANY_NAME)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -229,18 +229,23 @@ def reset():
     return jsonify({"status": "reset", "message": "All counters cleared for fresh demo"})
 
 
+@app.route("/monitor")
+def monitor():
+    """Live attack monitor page — shows real-time login events in browser."""
+    return render_template("monitor.html", company=COMPANY_NAME,
+                           cyberwatch_url=CYBERWATCH_URL)
+
+
 if __name__ == "__main__":
     print(f"""
-╔══════════════════════════════════════════════════════╗
-║        {COMPANY_NAME} Employee Portal — DEMO TARGET       ║
-║                                                      ║
-║  Running on: http://localhost:5001                   ║
-║  CyberWatch: {CYBERWATCH_URL}         ║
-║                                                      ║
-║  Credentials (intentionally weak for demo):          ║
-║    admin    / password123                            ║
-║    ceo      / Acme@2024                              ║
-║    hr.manager / HRportal#9                           ║
-╚══════════════════════════════════════════════════════╝
++======================================================+
+|  {COMPANY_NAME} Employee Portal -- DEMO TARGET
+|  Running on: http://localhost:5001
+|  CyberWatch: {CYBERWATCH_URL}
+|  Credentials (intentionally weak for demo):
+|    admin       / password123
+|    ceo         / Acme@2024
+|    hr.manager  / HRportal#9
++======================================================+
     """)
     app.run(host="0.0.0.0", port=5001, debug=False)

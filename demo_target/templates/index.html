@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ company }} — Global Technology Solutions</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:   #1d4ed8;
+      --sky:    #0ea5e9;
+      --dark:   #0f172a;
+      --gray:   #64748b;
+      --light:  #f8fafc;
+    }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--dark); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 48px;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 22px; font-weight: 800;
+      color: var(--blue); text-decoration: none;
+    }
+    .nav-logo {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 18px; font-weight: 900;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      text-decoration: none; color: var(--gray); font-size: 15px;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-login {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: opacity 0.2s, transform 0.1s !important;
+    }
+    .nav-login:hover { opacity: 0.9; transform: translateY(-1px); color: white !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      padding: 100px 48px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(14,165,233,0.15) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(14,165,233,0.15);
+      border: 1px solid rgba(14,165,233,0.3);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px; color: #7dd3fc;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: 56px; font-weight: 800; line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #fff 0%, #7dd3fc 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 19px; color: #94a3b8; max-width: 620px;
+      margin: 0 auto 40px; line-height: 1.6;
+    }
+    .hero-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: white; padding: 14px 32px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 16px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.92; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white; padding: 14px 32px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 16px;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+
+    /* ── STATS RIBBON ── */
+    .stats-ribbon {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 36px 48px;
+      display: flex; justify-content: center; gap: 80px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-number { font-size: 32px; font-weight: 800; color: var(--blue); }
+    .stat-label { font-size: 14px; color: var(--gray); margin-top: 4px; }
+
+    /* ── FEATURES ── */
+    .section { padding: 80px 48px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-tag {
+      display: inline-block;
+      background: #dbeafe; color: var(--blue);
+      border-radius: 20px; padding: 4px 14px;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .section-header h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+    .section-header p { font-size: 17px; color: var(--gray); max-width: 540px; margin: 0 auto; }
+
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; max-width: 1100px; margin: 0 auto;
+    }
+    .feature-card {
+      background: white; border: 1px solid #e2e8f0;
+      border-radius: 16px; padding: 32px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .feature-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .feature-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* ── PRODUCTS ── */
+    .products-section { background: #f8fafc; }
+    .products-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 28px; max-width: 1000px; margin: 0 auto;
+    }
+    .product-card {
+      background: white; border-radius: 16px;
+      border: 1px solid #e2e8f0; overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .product-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .product-header {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      padding: 24px 28px; color: white;
+    }
+    .product-header h3 { font-size: 20px; font-weight: 700; }
+    .product-header p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+    .product-body { padding: 24px 28px; }
+    .product-feature {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: #374151;
+      margin-bottom: 10px;
+    }
+    .check { color: #22c55e; font-weight: 700; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      padding: 72px 48px; text-align: center; color: white;
+    }
+    .cta-banner h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+    .cta-banner p { font-size: 18px; opacity: 0.85; margin-bottom: 32px; }
+    .btn-white {
+      background: white; color: var(--blue);
+      padding: 14px 36px; border-radius: 10px;
+      text-decoration: none; font-weight: 700; font-size: 16px;
+      display: inline-block; transition: transform 0.2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); color: #94a3b8;
+      padding: 48px; text-align: center;
+    }
+    .footer-brand { font-size: 20px; font-weight: 800; color: white; margin-bottom: 12px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+    .footer-links a { color: #64748b; text-decoration: none; font-size: 14px; }
+    .footer-links a:hover { color: #94a3b8; }
+    .footer-copy { font-size: 13px; }
+
+    /* ── DEMO ALERT BANNER ── */
+    .demo-alert {
+      background: #fef3c7;
+      border-bottom: 2px solid #f59e0b;
+      padding: 10px 48px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      font-size: 13px; color: #92400e; font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 36px; }
+      .features-grid, .products-grid { grid-template-columns: 1fr; }
+      .stats-ribbon { gap: 32px; }
+      nav { padding: 0 20px; }
+      .nav-links .hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Demo Alert Bar -->
+<div class="demo-alert">
+  <span>⚠️</span>
+  <span><strong>CyberWatch DEMO</strong> — This is a fake company website used to demonstrate real-time attack detection. Watch <strong>http://localhost:5173</strong> while attempting to login.</span>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <a class="nav-brand" href="/">
+    <div class="nav-logo">A</div>
+    {{ company }}
+  </a>
+  <div class="nav-links">
+    <a href="#solutions" class="hide-mobile">Solutions</a>
+    <a href="#products" class="hide-mobile">Products</a>
+    <a href="#about" class="hide-mobile">About</a>
+    <a href="#contact" class="hide-mobile">Contact</a>
+    <a href="/login" class="nav-login">Employee Login</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-badge">🌍 Trusted by 500+ enterprises worldwide</div>
+  <h1>Technology That<br>Powers Global Business</h1>
+  <p>{{ company }} delivers cutting-edge enterprise software, cloud infrastructure, and cybersecurity solutions that help organizations scale securely and efficiently.</p>
+  <div class="hero-buttons">
+    <a href="#solutions" class="btn-primary">Explore Solutions</a>
+    <a href="/login" class="btn-secondary">Employee Portal</a>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-ribbon">
+  <div class="stat">
+    <div class="stat-number">2,847</div>
+    <div class="stat-label">Employees Worldwide</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">$4.2B</div>
+    <div class="stat-label">Annual Revenue</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">120+</div>
+    <div class="stat-label">Countries Served</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">99.98%</div>
+    <div class="stat-label">Uptime SLA</div>
+  </div>
+</div>
+
+<!-- Solutions -->
+<section class="section" id="solutions">
+  <div class="section-header">
+    <div class="section-tag">What We Do</div>
+    <h2>Enterprise Solutions Built for Scale</h2>
+    <p>From cloud infrastructure to AI-driven analytics — we build the technology backbone of modern business.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">☁️</div>
+      <h3>Cloud Infrastructure</h3>
+      <p>Multi-region cloud deployments with auto-scaling, 99.99% uptime SLA, and enterprise-grade security controls.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Cybersecurity Suite</h3>
+      <p>End-to-end security monitoring, threat detection, incident response, and compliance automation for regulated industries.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Data Analytics</h3>
+      <p>Real-time business intelligence dashboards, predictive analytics, and AI-powered insights across your enterprise data.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI & Automation</h3>
+      <p>Intelligent process automation, ML model deployment pipelines, and conversational AI for enterprise workflows.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏢</div>
+      <h3>ERP Solutions</h3>
+      <p>Integrated HR, payroll, finance, and operations management on a unified platform for mid to large enterprises.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌐</div>
+      <h3>Global Networking</h3>
+      <p>SD-WAN, zero-trust networking, and private connectivity solutions across 120+ countries and 2,000+ PoPs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="section products-section" id="products">
+  <div class="section-header">
+    <div class="section-tag">Our Products</div>
+    <h2>Flagship Product Suite</h2>
+    <p>Purpose-built enterprise products trusted by Fortune 500 companies.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-header">
+        <h3>AcmeShield Enterprise</h3>
+        <p>Next-generation security operations platform</p>
+      </div>
+      <div class="product-body">
+        <div class="product-feature"><span class="check">✓</span> Real-time threat detection & correlation</div>
+        <div class="product-feature"><span class="check">✓</span> MITRE ATT&CK framework integration</div>
+        <div class="product-feature"><span class="check">✓</span> Automated incident response workflows</div>
+        <div class="product-feature"><span class="check">✓</span> 24/7 SOC-as-a-Service</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-header">
+        <h3>AcmeCloud Platform</h3>
+        <p>Unified multi-cloud management console</p>
+      </div>
+      <div class="product-body">
+        <div class="product-feature"><span class="check">✓</span> AWS, Azure, GCP unified management</div>
+        <div class="product-feature"><span class="check">✓</span> Auto-scaling and cost optimization</div>
+        <div class="product-feature"><span class="check">✓</span> Compliance reporting (SOC2, ISO 27001)</div>
+        <div class="product-feature"><span class="check">✓</span> Disaster recovery automation</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-header">
+        <h3>AcmeHR Suite</h3>
+        <p>Complete human capital management</p>
+      </div>
+      <div class="product-body">
+        <div class="product-feature"><span class="check">✓</span> Global payroll processing (140 countries)</div>
+        <div class="product-feature"><span class="check">✓</span> Employee self-service portal</div>
+        <div class="product-feature"><span class="check">✓</span> Performance & talent management</div>
+        <div class="product-feature"><span class="check">✓</span> Benefits administration</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-header">
+        <h3>AcmeAnalytics AI</h3>
+        <p>AI-powered business intelligence</p>
+      </div>
+      <div class="product-body">
+        <div class="product-feature"><span class="check">✓</span> Natural language query interface</div>
+        <div class="product-feature"><span class="check">✓</span> Predictive revenue forecasting</div>
+        <div class="product-feature"><span class="check">✓</span> Supply chain optimization AI</div>
+        <div class="product-feature"><span class="check">✓</span> Custom ML model deployment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner" id="contact">
+  <h2>Ready to Secure Your Enterprise?</h2>
+  <p>Join 500+ organizations that trust AcmeCorp to protect and power their business.</p>
+  <a href="/login" class="btn-white">Access Employee Portal</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-brand">{{ company }}</div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Security</a>
+    <a href="#">Careers</a>
+    <a href="#">Investor Relations</a>
+    <a href="/login">Employee Login</a>
+  </div>
+  <div class="footer-copy">
+    &copy; 2024 {{ company }} Corporation. All rights reserved. &nbsp;|&nbsp;
+    NASDAQ: ACME &nbsp;|&nbsp; Headquarters: San Francisco, CA
+  </div>
+</footer>
+
+</body>
+</html>
